@@ -3,78 +3,440 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Dance FX Charleston</title>
+    <title>Dance FX Charleston | Charleston SC Dance Scene Guide</title>
+    <meta name="description" content="Explore Charleston SC's vibrant dance scene — hip hop, jazz, line dancing, salsa socials, nightclubs, and bachelorette entertainment. Your complete guide to dancing in Charleston.">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
-    <link rel="stylesheet" href="styles.css"> 
-</head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,wght@0,300;0,400;0,600;1,300&display=swap" rel="stylesheet">
+    <style>
+      :root {
+        --neon-cyan: #00e5ff;
+        --neon-pink: #ff2d78;
+        --deep-black: #080810;
+        --card-bg: #0f0f1a;
+        --card-border: rgba(0,229,255,0.18);
+        --section-divider: rgba(255,45,120,0.35);
+        --body-font: 'DM Sans', sans-serif;
+        --display-font: 'Bebas Neue', sans-serif;
+      }
 
-<nav class="navbar navbar-expand-lg bg-info" data-bs-theme="dark">
-    <div class="container-fluid">
+      * { box-sizing: border-box; }
+
+      body {
+        background-color: var(--deep-black);
+        color: #e0e0ef;
+        font-family: var(--body-font);
+        font-size: 1.05rem;
+        line-height: 1.7;
+        overflow-x: hidden;
+      }
+
+      /* ── NAVBAR ── */
+      .navbar { background: rgba(8,8,16,0.92) !important; border-bottom: 1px solid var(--section-divider); backdrop-filter: blur(8px); }
+      .navbar-brand {
+        font-family: var(--display-font);
+        font-size: 2rem;
+        letter-spacing: 0.08em;
+        color: var(--neon-cyan) !important;
+        text-shadow: 0 0 18px rgba(0,229,255,0.55);
+      }
+      .nav-link { color: #c0c0d8 !important; font-weight: 300; letter-spacing: 0.04em; transition: color 0.2s; }
+      .nav-link:hover, .nav-link.active { color: var(--neon-pink) !important; }
+
+      /* ── HERO ── */
+      .hero-wrap {
+        position: relative;
+        width: 100%;
+        min-height: 520px;
+        display: flex;
+        align-items: flex-end;
+        overflow: hidden;
+      }
+      .hero-wrap img {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center top;
+        filter: brightness(0.45) saturate(1.2);
+      }
+      .hero-overlay {
+        position: relative;
+        z-index: 2;
+        padding: 3.5rem 2rem 2.5rem;
+        width: 100%;
+        background: linear-gradient(to top, rgba(8,8,16,0.97) 0%, transparent 100%);
+      }
+      .hero-overlay h1 {
+        font-family: var(--display-font);
+        font-size: clamp(3rem, 8vw, 6.5rem);
+        line-height: 0.95;
+        letter-spacing: 0.04em;
+        color: #fff;
+        text-shadow: 0 0 40px rgba(0,229,255,0.3);
+        margin-bottom: 0.4rem;
+      }
+      .hero-overlay h1 span { color: var(--neon-cyan); }
+      .hero-overlay p {
+        font-size: 1.1rem;
+        font-weight: 300;
+        color: rgba(255,255,255,0.75);
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        margin: 0;
+      }
+
+      /* ── SECTION LABELS ── */
+      .section-label {
+        font-family: var(--display-font);
+        font-size: clamp(2rem, 5vw, 3.5rem);
+        letter-spacing: 0.06em;
+        color: #fff;
+        line-height: 1;
+      }
+      .section-label .accent { color: var(--neon-cyan); }
+      .section-label .accent-pink { color: var(--neon-pink); }
+
+      /* ── INTRO BAND ── */
+      .intro-band {
+        background: linear-gradient(135deg, #0a0a18 0%, #0d0d22 100%);
+        border-top: 1px solid var(--section-divider);
+        border-bottom: 1px solid var(--section-divider);
+      }
+
+      /* ── DANCE CARDS ── */
+      .dance-card {
+        background: var(--card-bg);
+        border: 1px solid var(--card-border);
+        border-radius: 4px;
+        padding: 2rem 1.6rem;
+        height: 100%;
+        transition: border-color 0.25s, transform 0.25s, box-shadow 0.25s;
+      }
+      .dance-card:hover {
+        border-color: var(--neon-cyan);
+        transform: translateY(-4px);
+        box-shadow: 0 12px 40px rgba(0,229,255,0.12);
+      }
+      .dance-card .card-icon {
+        font-size: 2.4rem;
+        margin-bottom: 0.75rem;
+        display: block;
+      }
+      .dance-card h3 {
+        font-family: var(--display-font);
+        font-size: 1.65rem;
+        letter-spacing: 0.05em;
+        color: var(--neon-cyan);
+        margin-bottom: 0.5rem;
+      }
+      .dance-card p { font-size: 0.97rem; color: #b8b8cc; }
+      .dance-card .venue-tag {
+        display: inline-block;
+        font-size: 0.75rem;
+        font-weight: 600;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: var(--neon-pink);
+        border: 1px solid rgba(255,45,120,0.35);
+        padding: 2px 8px;
+        border-radius: 2px;
+        margin-top: 0.5rem;
+      }
+
+      /* ── SCENE HIGHLIGHT (wide featured block) ── */
+      .scene-highlight {
+        background: linear-gradient(110deg, #0f0f20 60%, #1a0a14 100%);
+        border-left: 4px solid var(--neon-pink);
+        border-radius: 4px;
+        padding: 2.2rem 2rem;
+      }
+      .scene-highlight h2 {
+        font-family: var(--display-font);
+        font-size: 2.2rem;
+        color: var(--neon-pink);
+        letter-spacing: 0.05em;
+      }
+
+      /* ── BACHELORETTE CTA ── */
+      .bachelorette-block {
+        background: linear-gradient(135deg, #14031a 0%, #0a0a20 100%);
+        border: 1px solid rgba(255,45,120,0.3);
+        border-radius: 4px;
+        padding: 3rem 2.5rem;
+        position: relative;
+        overflow: hidden;
+      }
+      .bachelorette-block::before {
+        content: '♛';
+        position: absolute;
+        right: 2rem;
+        top: 50%;
+        transform: translateY(-50%);
+        font-size: 8rem;
+        color: rgba(255,45,120,0.06);
+        pointer-events: none;
+      }
+      .bachelorette-block h2 {
+        font-family: var(--display-font);
+        font-size: clamp(1.8rem, 4vw, 3rem);
+        color: var(--neon-pink);
+        letter-spacing: 0.06em;
+        margin-bottom: 0.75rem;
+      }
+      .bachelorette-block p { color: #c8c8dc; }
+      .btn-michael {
+        background: var(--neon-pink);
+        color: #fff;
+        font-family: var(--display-font);
+        font-size: 1.1rem;
+        letter-spacing: 0.08em;
+        border: none;
+        padding: 0.65rem 2rem;
+        border-radius: 2px;
+        text-decoration: none;
+        display: inline-block;
+        transition: background 0.2s, box-shadow 0.2s;
+      }
+      .btn-michael:hover { background: #e0005a; box-shadow: 0 0 20px rgba(255,45,120,0.45); color: #fff; }
+
+      /* ── DIVIDER ── */
+      .pink-divider {
+        border: none;
+        height: 1px;
+        background: linear-gradient(to right, transparent, var(--neon-pink), transparent);
+        margin: 0;
+      }
+      .cyan-divider {
+        border: none;
+        height: 1px;
+        background: linear-gradient(to right, transparent, var(--neon-cyan), transparent);
+        margin: 0;
+      }
+
+      /* ── FOOTER ── */
+      footer {
+        background: #050508;
+        border-top: 1px solid rgba(0,229,255,0.12);
+        color: rgba(255,255,255,0.4);
+        font-size: 0.85rem;
+        letter-spacing: 0.06em;
+        text-align: center;
+        padding: 1.8rem 1rem;
+      }
+
+      a { color: var(--neon-cyan); }
+      a:hover { color: var(--neon-pink); }
+
+      .text-cyan { color: var(--neon-cyan); }
+      .text-pink { color: var(--neon-pink); }
+
+      /* glow pill tags */
+      .scene-pill {
+        display: inline-block;
+        font-size: 0.72rem;
+        font-weight: 600;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        padding: 3px 10px;
+        border-radius: 20px;
+        margin: 3px 2px;
+      }
+      .pill-cyan { background: rgba(0,229,255,0.08); border: 1px solid rgba(0,229,255,0.3); color: var(--neon-cyan); }
+      .pill-pink { background: rgba(255,45,120,0.08); border: 1px solid rgba(255,45,120,0.3); color: var(--neon-pink); }
+    </style>
+  </head>
+
+  <nav class="navbar navbar-expand-lg sticky-top" data-bs-theme="dark">
+    <div class="container">
       <a class="navbar-brand" href="#">DanceFX</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarColor02">
         <ul class="navbar-nav me-auto">
-          <li class="nav-item">
-            <a class="nav-link active" href="index.html">Home
-              <span class="visually-hidden">(current)</span>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="adult-dance.html">Adult Dance</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="social-dance.html">Social Dance</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="pole-dance.html">Pole Dance</a>
-          </li>
+          <li class="nav-item"><a class="nav-link active" href="index.html">Home <span class="visually-hidden">(current)</span></a></li>
+          <li class="nav-item"><a class="nav-link" href="adult-dance.html">Adult Dance</a></li>
+          <li class="nav-item"><a class="nav-link" href="social-dance.html">Social Dance</a></li>
+          <li class="nav-item"><a class="nav-link" href="pole-dance.html">Pole Dance</a></li>
         </ul>
       </div>
     </div>
   </nav>
 
+  <body>
 
-  <body class="container bg-black">
-    <div class="container">
-      <div class="imgContainer"></div>
-        <img class="imgMain img-fluid w-100 h-50" src="adultfx3.jpg" >
-        <h1 id="head1">DanceFX Charleston</h1>
-        <p id="head2">Charleston Adult Dance<br>List of Charleston SC Dance and Dance Places</p>
+    <!-- HERO -->
+    <div class="hero-wrap">
+      <img src="adultfx3.jpg" alt="Charleston SC Dance Scene">
+      <div class="hero-overlay">
+        <div class="container">
+          <h1>Dance<span>FX</span><br>Charleston</h1>
+          <p>Charleston SC &bull; Hip Hop &bull; Jazz &bull; Line Dance &bull; Salsa &bull; Nightlife</p>
+        </div>
       </div>
     </div>
 
-    <div class="container-fluid">
-        <div class="row bg-info text-white">
-          <div class="col fs-5">
-            <h1 class="text-center">What Kind Of Dance Do You Like</h1>
-            <p>Charleston offers a vibrant and diverse dance scene, reflecting the city's rich cultural heritage and lively party Charleston scene. From energetic nightclubs to intimate venues, there's something for everyone.</p>
-            <p>Nightclubs: Places attract crowds with electronic dance music and state-of-the-art lighting, while others offer a mix of DJs and a trendy atmosphere.</p>
-            <p>Salsa and Latin Dance: Venues provide opportunities to learn and enjoy Latin dances like salsa and bachata.</p>
-            <p>Live Music Venues: Many bars and pubs feature live music where you can dance to various genres, including blues, jazz, and local bands.</p>
-            <p>Specialty Dance Events: Keep an eye out for themed parties, dance festivals, and workshops that showcase different styles.</p>
-            <p><b>Adult Dance Classes: </b>Charleston also has a thriving scene for those who want to learn to dance. Several studios offer a variety of classes for adults, including jazz, hip hop, contemporary, and heels. You can also find classes in ballet, tap, modern, and ballroom dancing. Additionally, there are studios that specialize in pole dance fitness.</p>
-            <p>Whether you're into high-energy clubbing, Latin rhythms, grooving to live music, learning a new style, or trying pole dancing, Charleston has a dance scene to suit your taste.</p>
+    <!-- INTRO BAND -->
+    <section class="intro-band py-5">
+      <div class="container">
+        <div class="row align-items-center g-4">
+          <div class="col-lg-7">
+            <p class="text-uppercase fw-600" style="font-size:0.75rem; letter-spacing:0.18em; color:var(--neon-cyan); margin-bottom:0.5rem;">The Holy City's Dance Guide</p>
+            <h2 class="section-label mb-3">What Kind of Dance<br>Do You <span class="accent-pink">Like?</span></h2>
+            <p>Charleston, South Carolina is a city that moves. From the smoky jazz rooms of King Street to country line dancing in North Charleston, Latin salsa socials on Tuesday nights, high-energy hip hop at downtown nightclubs, and world-class dance productions at the Gaillard Center — the Lowcountry's dance scene is as layered and alive as the city itself.</p>
+            <p>Whether you're a local looking for a weekly social, a visitor exploring the peninsula, or a bachelorette crew ready for a night that's equal parts art and entertainment — this is your guide.</p>
+            <div class="mt-3">
+              <span class="scene-pill pill-cyan">Hip Hop</span>
+              <span class="scene-pill pill-pink">Jazz</span>
+              <span class="scene-pill pill-cyan">Line Dancing</span>
+              <span class="scene-pill pill-pink">Salsa Socials</span>
+              <span class="scene-pill pill-cyan">Nightclubs</span>
+              <span class="scene-pill pill-pink">Bachelorette Shows</span>
+            </div>
           </div>
-        </div>
-        <div class="row bg-light text-dark mt-5">
-          <div class="col fs-5">
-            <h2 class="text-center">See What's New With The Dance</h2>
-            <p>This once popular dance site has been brought back to life one more time to display the many different types of dance options, especially in the Charleston area. Some dancers perform for the nightlife of the area, like for live shows or bachelorette party night ideas. From the traditional hip hop dancing to the bachelorette fun with Michael CHS Blog or also known as <a href="https://michaelatyourplace.com">Michael at Your Place Charleston</a> there are all kind of options. Michael is a well known male entertertainer known for las vegas style high energy shows featuring acrobatics. Festivals like Spoleto comes to town yearly which show more artist featuring various types of dance troupes, ballet, aerial arts and more. Charleston South Carolina is a lively place to see all different types of art and artist perform.</p>
+          <div class="col-lg-5">
+            <div class="scene-highlight">
+              <h2>CHARLESTON SC<br>DANCE SCENE 2025</h2>
+              <p style="color:#c8c8dc; font-size:0.97rem;">From the Charleston Jazz Festival at the Gaillard Center to Tuesday Salsa nights at Forte Jazz Lounge on King Street — the Holy City has more dance floors per square mile than most cities twice its size. Off the peninsula, North Charleston and Summerville carry their own thriving movement culture year-round.</p>
+            </div>
           </div>
         </div>
       </div>
-      
+    </section>
 
+    <hr class="cyan-divider">
 
-      <footer class="text-white mt-5">
-        <center><p>COPYRIGHT ©2025, DanceFX ALL RIGHTS RESERVED. Charleston SC</p></center>
-      </footer>
+    <!-- DANCE STYLES GRID -->
+    <section class="py-5" style="background: var(--deep-black);">
+      <div class="container">
+        <h2 class="section-label text-center mb-2">The <span class="accent">Scene</span></h2>
+        <p class="text-center mb-5" style="color:#888; font-size:0.9rem; letter-spacing:0.08em; text-transform:uppercase;">Charleston's Dance Floors Broken Down</p>
+
+        <div class="row g-4">
+
+          <!-- Hip Hop -->
+          <div class="col-md-6 col-lg-4">
+            <div class="dance-card">
+              <span class="card-icon">🎤</span>
+              <h3>Hip Hop</h3>
+              <p>Charleston's hip hop dance and music scene is expanding fast. Downtown clubs like <strong>Club Trio</strong> on the peninsula spin EDM-to-hip-hop sets on the weekends, while <strong>Music Farm</strong> brings touring hip hop acts through regularly. Off the peninsula in North Charleston, a grassroots movement of venues, showcases, and DJ nights — anchored by artists and collaborators like DJ Chuck T — keeps the culture alive and growing.</p>
+              <p>The <strong>Charleston Gaillard Center's Dance Initiative</strong> brought productions like <em>The Hip Hop Nutcracker</em> and Dorrance Dance's street-and-club-rooted <em>The Center Will Not Hold</em> — featuring House, Breaking, Chicago Footwork, and Memphis Jookin — to Lowcountry audiences. Hip hop is no longer just clubs: it's on stage, in studios, and on competition floors.</p>
+              <span class="venue-tag">Music Farm · Club Trio · North Charleston</span>
+            </div>
+          </div>
+
+          <!-- Jazz -->
+          <div class="col-md-6 col-lg-4">
+            <div class="dance-card">
+              <span class="card-icon">🎷</span>
+              <h3>Jazz Dance</h3>
+              <p><strong>Forte Jazz Lounge</strong> at 475 King Street is Charleston's only dedicated jazz venue — open Wednesday through Saturday, modeled after New York-style listening rooms and featuring local legends, touring acts, and Grammy winners. Tuesday Salsa Dance Nights at Forte have become a weekly institution. The atmosphere regularly gets crowds on their feet.</p>
+              <p>The <strong>Charleston Jazz Festival</strong> draws national attention every year, and the Gaillard Center presents jazz-infused ballet and contemporary productions from companies like ABT and Dance Theatre of Harlem. Adult jazz dance classes are offered at studios across the city including <strong>Holy City Dance Center</strong>, which serves Charleston and Summerville.</p>
+              <span class="venue-tag">Forte Jazz · 475 King St · Charleston Jazz Festival</span>
+            </div>
+          </div>
+
+          <!-- Line Dancing / Honky Tonk -->
+          <div class="col-md-6 col-lg-4">
+            <div class="dance-card">
+              <span class="card-icon">🤠</span>
+              <h3>Line Dancing &amp; Honky Tonk</h3>
+              <p>You don't come to Charleston and skip the line dancing. <strong>Honky Tonk Saloon</strong> is the city's premier country music and line dancing venue — weekly line dance classes, Southern hospitality, and a crowd that actually knows the steps. It's a staple for bachelorette parties, locals, and anyone who wants to work up a sweat to something other than EDM.</p>
+              <p>Yelp's local roundups consistently list Honky Tonk alongside <strong>The Commodore</strong> and <strong>Republic Garden &amp; Lounge</strong> as top Charleston line dancing destinations. Come ready to move — the floor doesn't wait for beginners.</p>
+              <span class="venue-tag">Honky Tonk Saloon · The Commodore · Republic Garden</span>
+            </div>
+          </div>
+
+          <!-- Salsa & Latin -->
+          <div class="col-md-6 col-lg-4">
+            <div class="dance-card">
+              <span class="card-icon">💃</span>
+              <h3>Salsa &amp; Latin Dance</h3>
+              <p>Latin dance has carved out a permanent weekly spot in Charleston's social scene. <strong>Forte Jazz Lounge</strong> hosts a recurring <em>Salsa Dance Night on Tuesdays</em> that's become a go-to for locals. <strong>Charleston Latin Dance</strong> and <strong>Dance Lab</strong> offer classes for all levels. <strong>Arthur Murray Charleston</strong> on Savannah Highway covers everything from salsa and bachata to cha-cha and rumba with NDCA-certified instructors.</p>
+              <p><strong>International Ballroom Dance Studios</strong>, serving the greater Charleston area since 2006, runs social dance parties that blend salsa, tango, swing, and more in a welcoming, community atmosphere. Salsa Vida maintains a running calendar of Charleston-area Latin socials and events.</p>
+              <span class="venue-tag">Forte Jazz · Arthur Murray · Dance Lab</span>
+            </div>
+          </div>
+
+          <!-- Nightclub Scene -->
+          <div class="col-md-6 col-lg-4">
+            <div class="dance-card">
+              <span class="card-icon">🪩</span>
+              <h3>Nightclub &amp; Club Scene</h3>
+              <p>Downtown Charleston's nightclub circuit runs deep along King Street and into the French Quarter. <strong>Club Trio</strong> in the heart of downtown is known for its spacious dance floor, VIP bottle service, and a DJ lineup that cycles through EDM, hip hop, and R&amp;B all night. <strong>The Royal American</strong> brings an industrial edge with nightly events from funk and soul to punk shows. <strong>Uptown Social</strong> on Upper King offers a rooftop bar experience with rotating DJs and craft cocktails — perfect for a bachelorette crew or a big girls' night.</p>
+              <p><strong>Frontier Lounge</strong> (formerly Mynt) rounds out the downtown club circuit with its Disco-Western-themed energy and lit dance floor.</p>
+              <span class="venue-tag">Club Trio · Royal American · Uptown Social · Frontier Lounge</span>
+            </div>
+          </div>
+
+          <!-- Adult Dance Classes -->
+          <div class="col-md-6 col-lg-4">
+            <div class="dance-card">
+              <span class="card-icon">🩰</span>
+              <h3>Adult Dance Classes &amp; Studios</h3>
+              <p>Charleston's studio scene covers every style from beginner to competitive. <strong>Holy City Dance Center</strong> — with studio locations serving Charleston and Summerville — offers hip hop, jazz, tap, contemporary, and inclusive dance for adults and teens. <strong>Dance Lab</strong> covers hip hop, salsa, and social styles. <strong>DivaDance Parties Charleston</strong> specializes in high-energy hip hop fitness classes tailor-made for bachelorette parties and girls' nights. <strong>Arthur Murray</strong> and <strong>International Ballroom Dance Studios</strong> serve the ballroom and Latin set. Pole dance fitness studios round out a remarkably complete adult dance ecosystem in the Lowcountry.</p>
+              <span class="venue-tag">Holy City Dance · DivaDance · Dance Lab · Arthur Murray</span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <hr class="pink-divider">
+
+    <!-- BACHELORETTE / MICHAEL CTA -->
+    <section class="py-5" style="background: #08080f;">
+      <div class="container">
+        <div class="bachelorette-block">
+          <p class="text-uppercase" style="font-size:0.72rem; letter-spacing:0.2em; color:rgba(255,255,255,0.45); margin-bottom:0.5rem;">Bachelorette Entertainment · Charleston SC</p>
+          <h2>A Different Kind<br>of Dance Show</h2>
+          <p>Not every dance performance fits neatly into a studio or a nightclub — and that's exactly the point. <strong><a href="https://michaelatyourplace.com" style="color:var(--neon-pink);">Michael at Your Place Charleston</a></strong> brings Las Vegas-style male entertainment directly to your party venue. Known for high-energy acrobatic shows that blur the line between performance art and nightlife, Michael has become one of Charleston's most sought-after bachelorette party experiences.</p>
+          <p>From Isle of Palms vacation rentals to Folly Beach houses, Mount Pleasant venues, and private downtown suites — Michael performs across the entire Lowcountry. If your group wants something more memorable than a bar crawl and more polished than a typical male revue, this is the entertainer Charleston bachelorette parties have been booking.</p>
+          <a href="https://michaelatyourplace.com" class="btn-michael mt-2">Book Michael CHS &rarr;</a>
+        </div>
+      </div>
+    </section>
+
+    <hr class="cyan-divider">
+
+    <!-- SPOLETO / EVENTS BAND -->
+    <section class="py-5" style="background: var(--deep-black);">
+      <div class="container">
+        <div class="row align-items-center g-4">
+          <div class="col-lg-6">
+            <h2 class="section-label mb-3">Live Performances &amp;<br><span class="accent">Annual Events</span></h2>
+            <p>Charleston's live dance performance calendar is packed year-round. <strong>Spoleto Festival USA</strong> descends on the Holy City every spring, filling venues from the Charleston Music Hall to Dock Street Theatre with ballet, aerial arts, contemporary dance troupes, and experimental performance companies from around the world.</p>
+            <p>The <strong>Charleston Gaillard Center's Dance Initiative</strong> brings world-class touring companies — from Alvin Ailey American Dance Theater to Dance Theatre of Harlem — to the Lowcountry. The annual <strong>Charleston Jazz Festival</strong> and recurring events at <strong>North Charleston Performing Arts Center</strong> keep the calendar full of hip hop, R&amp;B, and jazz performance events every season.</p>
+            <p>Local competitions like the <strong>Peace Love Hip Hop Showcase</strong> at Philip Simmons High School shine a spotlight on the next generation of Charleston's dance talent. The CofC Cougarettes have been known to bring D1 Hip Hop national contenders home. The Lowcountry doesn't just appreciate dance — it grows it.</p>
+          </div>
+          <div class="col-lg-6">
+            <div style="background: var(--card-bg); border: 1px solid var(--card-border); border-radius:4px; padding: 2rem;">
+              <h3 style="font-family:var(--display-font); color:var(--neon-cyan); font-size:1.5rem; letter-spacing:0.05em; margin-bottom:1rem;">Quick Reference: Charleston Dance Venues</h3>
+              <ul style="list-style:none; padding:0; margin:0; font-size:0.93rem; color:#b0b0c8;">
+                <li style="padding: 0.4rem 0; border-bottom:1px solid rgba(255,255,255,0.06);">🎷 <strong style="color:#fff;">Forte Jazz Lounge</strong> — 475 King St, jazz &amp; salsa nights</li>
+                <li style="padding: 0.4rem 0; border-bottom:1px solid rgba(255,255,255,0.06);">🤠 <strong style="color:#fff;">Honky Tonk Saloon</strong> — line dancing &amp; country nights</li>
+                <li style="padding: 0.4rem 0; border-bottom:1px solid rgba(255,255,255,0.06);">🪩 <strong style="color:#fff;">Club Trio</strong> — downtown hip hop &amp; EDM</li>
+                <li style="padding: 0.4rem 0; border-bottom:1px solid rgba(255,255,255,0.06);">🎸 <strong style="color:#fff;">The Royal American</strong> — eclectic indie nights</li>
+                <li style="padding: 0.4rem 0; border-bottom:1px solid rgba(255,255,255,0.06);">🌃 <strong style="color:#fff;">Uptown Social</strong> — rooftop DJs &amp; bachelorette friendly</li>
+                <li style="padding: 0.4rem 0; border-bottom:1px solid rgba(255,255,255,0.06);">🎭 <strong style="color:#fff;">Music Farm</strong> — live acts &amp; hip hop concerts</li>
+                <li style="padding: 0.4rem 0; border-bottom:1px solid rgba(255,255,255,0.06);">🩰 <strong style="color:#fff;">Holy City Dance Center</strong> — adult studios, Charleston &amp; Summerville</li>
+                <li style="padding: 0.4rem 0; border-bottom:1px solid rgba(255,255,255,0.06);">💃 <strong style="color:#fff;">Arthur Murray Charleston</strong> — ballroom &amp; Latin, Savannah Hwy</li>
+                <li style="padding: 0.4rem 0;">🎪 <strong style="color:#fff;">Gaillard Center</strong> — touring companies &amp; Dance Initiative</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <p>COPYRIGHT &copy;2025 DANCEFX CHARLESTON &mdash; ALL RIGHTS RESERVED &mdash; CHARLESTON, SC</p>
+    </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
   </body>
-
- 
-
 </html>

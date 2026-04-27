@@ -3,85 +3,560 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Dance FX Charleston</title>
+    <title>Pole Dance Charleston SC | Studios, Classes &amp; Bachelorette Parties | DanceFX</title>
+    <meta name="description" content="Find the best pole dance studios in Charleston SC — Inversions Pole Fitness, Amorous Dance, Goddess Dance Studio, Dance Your Life Studio, and more. Classes, bachelorette parties, and fitness for all levels.">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
-    <link rel="stylesheet" href="styles.css"> 
-</head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,wght@0,300;0,400;0,600;1,300&display=swap" rel="stylesheet">
+    <style>
+      :root {
+        --neon-cyan: #00e5ff;
+        --neon-pink: #ff2d78;
+        --deep-black: #080810;
+        --card-bg: #0f0f1a;
+        --card-border: rgba(0,229,255,0.18);
+        --section-divider: rgba(255,45,120,0.35);
+        --body-font: 'DM Sans', sans-serif;
+        --display-font: 'Bebas Neue', sans-serif;
+      }
 
-<nav class="navbar navbar-expand-lg bg-info" data-bs-theme="dark">
-  <div class="container-fluid">
-    <a class="navbar-brand" href="#">DanceFX</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarColor02">
-      <ul class="navbar-nav me-auto">
-        <li class="nav-item">
-          <a class="nav-link active" href="index.html">Home
-            <span class="visually-hidden">(current)</span>
-          </a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="adult-dance.html">Adult Dance</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="social-dance.html">Social Dance</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="pole-dance.html">Pole Dance</a>
-        </li>
-      </ul>
-    </div>
-  </div>
-</nav>
+      * { box-sizing: border-box; }
 
+      body {
+        background-color: var(--deep-black);
+        color: #e0e0ef;
+        font-family: var(--body-font);
+        font-size: 1.05rem;
+        line-height: 1.7;
+        overflow-x: hidden;
+      }
 
-  <body class="container bg-black">
+      /* ── NAVBAR ── */
+      .navbar { background: rgba(8,8,16,0.92) !important; border-bottom: 1px solid var(--section-divider); backdrop-filter: blur(8px); }
+      .navbar-brand {
+        font-family: var(--display-font);
+        font-size: 2rem;
+        letter-spacing: 0.08em;
+        color: var(--neon-cyan) !important;
+        text-shadow: 0 0 18px rgba(0,229,255,0.55);
+      }
+      .nav-link { color: #c0c0d8 !important; font-weight: 300; letter-spacing: 0.04em; transition: color 0.2s; }
+      .nav-link:hover, .nav-link.active { color: var(--neon-pink) !important; }
+
+      /* ── PAGE HEADER ── */
+      .page-header {
+        padding: 5rem 0 3rem;
+        background: linear-gradient(180deg, #120010 0%, var(--deep-black) 100%);
+        border-bottom: 1px solid var(--section-divider);
+        position: relative;
+        overflow: hidden;
+      }
+      .page-header::before {
+        content: 'POLE';
+        position: absolute;
+        right: -0.5rem;
+        top: 50%;
+        transform: translateY(-50%);
+        font-family: var(--display-font);
+        font-size: clamp(7rem, 22vw, 16rem);
+        color: rgba(255,45,120,0.05);
+        letter-spacing: 0.04em;
+        pointer-events: none;
+        white-space: nowrap;
+      }
+      .page-header h1 {
+        font-family: var(--display-font);
+        font-size: clamp(3rem, 8vw, 6rem);
+        line-height: 0.95;
+        letter-spacing: 0.04em;
+        color: #fff;
+        margin-bottom: 0.5rem;
+      }
+      .page-header h1 span { color: var(--neon-pink); }
+      .page-header p {
+        font-size: 1rem;
+        font-weight: 300;
+        color: rgba(255,255,255,0.55);
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        margin: 0;
+      }
+
+      /* ── SECTION LABELS ── */
+      .section-label {
+        font-family: var(--display-font);
+        font-size: clamp(2rem, 5vw, 3.2rem);
+        letter-spacing: 0.06em;
+        color: #fff;
+        line-height: 1;
+      }
+      .accent      { color: var(--neon-cyan); }
+      .accent-pink { color: var(--neon-pink); }
+
+      /* ── STUDIO CARDS ── */
+      .studio-card {
+        background: var(--card-bg);
+        border: 1px solid var(--card-border);
+        border-radius: 4px;
+        padding: 1.8rem 1.6rem;
+        height: 100%;
+        transition: border-color 0.25s, transform 0.25s, box-shadow 0.25s;
+      }
+      .studio-card:hover {
+        border-color: var(--neon-pink);
+        transform: translateY(-4px);
+        box-shadow: 0 12px 40px rgba(255,45,120,0.1);
+      }
+      .studio-card .card-icon {
+        font-size: 2rem;
+        margin-bottom: 0.6rem;
+        display: block;
+      }
+      .studio-card h3 {
+        font-family: var(--display-font);
+        font-size: 1.55rem;
+        letter-spacing: 0.05em;
+        color: var(--neon-pink);
+        margin-bottom: 0.35rem;
+      }
+      .studio-card p { font-size: 0.95rem; color: #b8b8cc; margin-bottom: 0.6rem; }
+      .studio-card .location-tag {
+        display: inline-block;
+        font-size: 0.72rem;
+        font-weight: 600;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: var(--neon-cyan);
+        border: 1px solid rgba(0,229,255,0.3);
+        padding: 2px 8px;
+        border-radius: 2px;
+      }
+
+      /* ── BENEFIT BLOCKS ── */
+      .benefit-item {
+        display: flex;
+        gap: 1.25rem;
+        align-items: flex-start;
+        padding: 1.5rem;
+        background: var(--card-bg);
+        border: 1px solid rgba(255,45,120,0.12);
+        border-radius: 4px;
+        transition: border-color 0.2s;
+      }
+      .benefit-item:hover { border-color: rgba(255,45,120,0.4); }
+      .benefit-icon { font-size: 2rem; flex-shrink: 0; }
+      .benefit-item h4 {
+        font-family: var(--display-font);
+        font-size: 1.3rem;
+        letter-spacing: 0.05em;
+        color: var(--neon-pink);
+        margin-bottom: 0.25rem;
+      }
+      .benefit-item p { font-size: 0.93rem; color: #a8a8bc; margin: 0; }
+
+      /* ── BACHELORETTE CALLOUT ── */
+      .bach-block {
+        background: linear-gradient(135deg, #14031a 0%, #0a0a20 100%);
+        border: 1px solid rgba(255,45,120,0.3);
+        border-radius: 4px;
+        padding: 3rem 2.5rem;
+        position: relative;
+        overflow: hidden;
+      }
+      .bach-block::before {
+        content: '✦';
+        position: absolute;
+        right: 2rem;
+        top: 50%;
+        transform: translateY(-50%);
+        font-size: 9rem;
+        color: rgba(255,45,120,0.05);
+        pointer-events: none;
+      }
+      .bach-block h2 {
+        font-family: var(--display-font);
+        font-size: clamp(1.8rem, 4vw, 3rem);
+        color: var(--neon-pink);
+        letter-spacing: 0.06em;
+        margin-bottom: 0.75rem;
+      }
+      .bach-block p { color: #c8c8dc; }
+      .btn-pink {
+        background: var(--neon-pink);
+        color: #fff;
+        font-family: var(--display-font);
+        font-size: 1.1rem;
+        letter-spacing: 0.08em;
+        border: none;
+        padding: 0.65rem 2rem;
+        border-radius: 2px;
+        text-decoration: none;
+        display: inline-block;
+        margin-right: 0.75rem;
+        margin-top: 0.5rem;
+        transition: background 0.2s, box-shadow 0.2s;
+      }
+      .btn-pink:hover { background: #e0005a; box-shadow: 0 0 20px rgba(255,45,120,0.45); color: #fff; }
+      .btn-outline-cyan {
+        background: transparent;
+        color: var(--neon-cyan);
+        font-family: var(--display-font);
+        font-size: 1.1rem;
+        letter-spacing: 0.08em;
+        border: 1px solid var(--neon-cyan);
+        padding: 0.65rem 2rem;
+        border-radius: 2px;
+        text-decoration: none;
+        display: inline-block;
+        margin-top: 0.5rem;
+        transition: background 0.2s, color 0.2s;
+      }
+      .btn-outline-cyan:hover { background: rgba(0,229,255,0.1); color: var(--neon-cyan); }
+
+      /* ── QUICK LIST ── */
+      .quick-list {
+        background: var(--card-bg);
+        border: 1px solid var(--card-border);
+        border-radius: 4px;
+        overflow: hidden;
+      }
+      .quick-list-header {
+        background: rgba(255,45,120,0.07);
+        padding: 1rem 1.5rem;
+        font-family: var(--display-font);
+        font-size: 1.3rem;
+        letter-spacing: 0.06em;
+        color: var(--neon-pink);
+        border-bottom: 1px solid rgba(255,45,120,0.15);
+      }
+      .quick-row {
+        display: flex;
+        align-items: flex-start;
+        gap: 1rem;
+        padding: 0.8rem 1.5rem;
+        border-bottom: 1px solid rgba(255,255,255,0.05);
+        font-size: 0.93rem;
+      }
+      .quick-row:last-child { border-bottom: none; }
+      .quick-row .q-num {
+        font-family: var(--display-font);
+        font-size: 1.2rem;
+        color: var(--neon-pink);
+        opacity: 0.5;
+        flex-shrink: 0;
+        width: 1.6rem;
+      }
+      .quick-row .q-name { color: #fff; font-weight: 600; }
+      .quick-row .q-detail { color: #777; font-size: 0.83rem; }
+
+      /* ── SCENE PILLS ── */
+      .scene-pill {
+        display: inline-block;
+        font-size: 0.72rem;
+        font-weight: 600;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        padding: 3px 10px;
+        border-radius: 20px;
+        margin: 3px 2px;
+      }
+      .pill-cyan { background: rgba(0,229,255,0.08); border: 1px solid rgba(0,229,255,0.3); color: var(--neon-cyan); }
+      .pill-pink { background: rgba(255,45,120,0.08); border: 1px solid rgba(255,45,120,0.3); color: var(--neon-pink); }
+
+      /* ── DIVIDERS ── */
+      .pink-divider { border: none; height: 1px; background: linear-gradient(to right, transparent, var(--neon-pink), transparent); margin: 0; }
+      .cyan-divider  { border: none; height: 1px; background: linear-gradient(to right, transparent, var(--neon-cyan), transparent); margin: 0; }
+
+      /* ── FOOTER ── */
+      footer {
+        background: #050508;
+        border-top: 1px solid rgba(0,229,255,0.12);
+        color: rgba(255,255,255,0.4);
+        font-size: 0.85rem;
+        letter-spacing: 0.06em;
+        text-align: center;
+        padding: 1.8rem 1rem;
+      }
+
+      a { color: var(--neon-cyan); }
+      a:hover { color: var(--neon-pink); }
+    </style>
+  </head>
+
+  <nav class="navbar navbar-expand-lg sticky-top" data-bs-theme="dark">
     <div class="container">
-      <div class="imgContainer"></div>
-        <img class="imgMain img-fluid w-100 h-50" src="polefx1.jpg" style="">
-        <h1 id="head3">Pole Dance</h1>
+      <a class="navbar-brand" href="index.html">DanceFX</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarColor02">
+        <ul class="navbar-nav me-auto">
+          <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="adult-dance.html">Adult Dance</a></li>
+          <li class="nav-item"><a class="nav-link" href="social-dance.html">Social Dance</a></li>
+          <li class="nav-item"><a class="nav-link active" href="pole-dance.html">Pole Dance <span class="visually-hidden">(current)</span></a></li>
+        </ul>
       </div>
     </div>
+  </nav>
 
-    <div class="container-fluid">
-        <div class="row bg-info text-white">
-          <div class="col fs-5">
-            <h2 class="text-center fs-3">Charleston Pole Dance Scene: Unveiling a Spicy Secret</h2>
-            <p class="text-center"><b>Pole Dancing Class for Charleston Bachelorettes</b></p>
-            <center><p>-------------------------------------------------------------</p></center>
-            <h3 class="text-center">Places to Pole Dance in Charleston</h3><br>
-            <ol>
-                <li>Amourous Dance Pole And Fitness</li>
-                <li>Inversions Pole Fitness</li>
-                <li>Charleston Pole Dancing</li>
-                <li>Tipsy Twerk</li>
-                <li>Teazers Pole Dance Studio</li>
-                <li>Goddess Dance Studio</li>
-                <li>Wicked Fitness</li>
-                <li>Diva Dance</li>
-            </ol>
+  <body>
 
-            <div class="text-center">Commuinity and Events: We are all in This Togethere</div>
+    <!-- PAGE HEADER -->
+    <header class="page-header">
+      <div class="container">
+        <h1>Pole <span>Dance</span><br>Charleston SC</h1>
+        <p>Studios &bull; Fitness Classes &bull; Bachelorette Parties &bull; All Levels Welcome</p>
+      </div>
+    </header>
 
-            <p>The pole dance community in Charleston is seriously the best. It's all about support, encouragement, and celebrating each other's victories, big or small. Dancers of all ages, genders, and backgrounds come together to share their passion, lift each other up, and create some serious pole magic. Studios throw awesome showcases and events where students can strut their stuff, celebrate their hard work, and show everyone what pole dance is really about. These events aren't just a blast; they're also helping to change perceptions and show the world that pole dance is a legit art form that deserves some serious respect.</p>
+    <!-- INTRO -->
+    <section class="py-5" style="background: linear-gradient(135deg, #0a0a18 0%, #100510 100%); border-bottom: 1px solid rgba(0,229,255,0.08);">
+      <div class="container">
+        <div class="row align-items-center g-5">
+          <div class="col-lg-7">
+            <p class="text-uppercase" style="font-size:0.75rem; letter-spacing:0.18em; color:var(--neon-pink); margin-bottom:0.5rem;">Charleston's Pole Dance Scene</p>
+            <h2 class="section-label mb-3">Unveiling<br><span class="accent">Charleston's Spicy Secret</span></h2>
+            <p>Pole dance fitness has quietly become one of the most popular group fitness and entertainment experiences in the Charleston, SC area — and for good reason. From dedicated pole fitness studios in Mount Pleasant to classes on Savannah Highway and downtown private party bookings, the Lowcountry has a thriving pole community that's welcoming, inclusive, and genuinely fun.</p>
+            <p>Whether you're here for a bachelorette weekend, looking for a full-body workout that doesn't feel like a workout, or searching for a supportive sisterhood to train with — Charleston's pole scene delivers all of it.</p>
+            <div class="mt-3">
+              <span class="scene-pill pill-pink">Pole Fitness</span>
+              <span class="scene-pill pill-cyan">Aerial Arts</span>
+              <span class="scene-pill pill-pink">Chair Dance</span>
+              <span class="scene-pill pill-cyan">Twerk</span>
+              <span class="scene-pill pill-pink">Bachelorette Parties</span>
+              <span class="scene-pill pill-cyan">High Heels Classes</span>
+            </div>
+          </div>
+          <div class="col-lg-5">
+            <img src="polefx1.jpg" alt="Pole dance Charleston SC" class="img-fluid w-100" style="border-radius:4px; border:1px solid rgba(255,45,120,0.2); filter: brightness(0.82) saturate(1.1);">
+          </div>
+        </div>
+      </div>
+    </section>
 
-            <h4>Benefits of Pole Dance: More Than Just a Workout</h4>
-            <p>Pole dance does wonders for your body and mind. It's a full-body blast that builds strength, flexibility, and coordination like nothing else. But it's not just about the physical stuff. It also does a solid for your confidence, self-esteem, and body image. It's a creative outlet that lets you express yourself, connect with your body on a whole new level, and feel absolutely amazing in your own skin.</p>
-            
-            <h4>Breaking Stereotypes: Let's Get Real</h4>
-            <p>Let's face it; pole dance has been saddled with some serious misconceptions. But the Charleston pole community is all about breaking down those stereotypes and showing the world the truth. By showcasing the athleticism, artistry, and sheer power of pole dance, they're changing minds, opening hearts, and creating a community where everyone feels welcome and accepted.</p>
+    <hr class="pink-divider">
 
-            <h4>Getting Involved: Your Pole Adventure Awaits</h4>
-            <p>If you're even a little bit curious about pole dance, Charleston is the place to be. Whether you're ready to jump right in or just want to dip your toes, you'll find a studio and a community that will welcome you with open arms. So go ahead, take a class, check out a showcase, or connect with other dancers online. You might just discover your new obsession!</p>
+    <!-- STUDIOS GRID -->
+    <section class="py-5" style="background: var(--deep-black);">
+      <div class="container">
+        <h2 class="section-label text-center mb-2">Places to <span class="accent-pink">Pole Dance</span> in Charleston</h2>
+        <p class="text-center mb-5" style="color:#666; font-size:0.85rem; letter-spacing:0.1em; text-transform:uppercase;">Studios Serving Charleston, Mount Pleasant &amp; the Lowcountry</p>
 
-      <footer class="text-white mt-5 bg-black">
-        <center><p>COPYRIGHT ©2025, DanceFX ALL RIGHTS RESERVED. Charleston SC</p></center>
-      </footer>
+        <div class="row g-4">
+
+          <!-- Inversions -->
+          <div class="col-md-6 col-lg-4">
+            <div class="studio-card">
+              <span class="card-icon">🏆</span>
+              <h3>Inversions Pole Fitness</h3>
+              <p>Voted Mount Pleasant's best dance studio, <strong>Inversions Pole Fitness</strong> at 716 S. Shelmore Blvd is the Holy City's top-rated studio for pole dance, lap dance, chair work, twerk, and burlesque. Founded in 2011 by Lisa Havens — a Master Trainer with the Pole Fitness Alliance — Inversions is the go-to destination for bachelorette pole parties, girls' nights, and ongoing classes for all levels.</p>
+              <p>Just 5 minutes from downtown Charleston and 10 minutes from Isle of Palms, the studio features club lighting, photo walls, and champagne service for private party bookings. Reviews consistently call it transformative.</p>
+              <span class="location-tag">716 S Shelmore Blvd · Mount Pleasant</span>
+            </div>
+          </div>
+
+          <!-- Amorous -->
+          <div class="col-md-6 col-lg-4">
+            <div class="studio-card">
+              <span class="card-icon">💪</span>
+              <h3>Amorous Dance Pole &amp; Fitness</h3>
+              <p><strong>Amorous Dance Pole and Fitness</strong> at 1706 Old Towne Road has been one of Charleston's most respected pole and aerial fitness studios for over a decade. ADPAF-certified instructors work with dancers of all fitness levels across pole, aerial, and specialty dance workshops. Their motto says it all: <em>Where Confidence Meets Fitness.</em></p>
+              <p>Yelp consistently ranks Amorous among the top pole dancing class providers in the Charleston metro, with reviewers praising the supportive, all-accepting environment and effective instruction.</p>
+              <span class="location-tag">1706 Old Towne Rd · Charleston</span>
+            </div>
+          </div>
+
+          <!-- Dance Your Life -->
+          <div class="col-md-6 col-lg-4">
+            <div class="studio-card">
+              <span class="card-icon">👠</span>
+              <h3>Dance Your Life Studio</h3>
+              <p><strong>Dance Your Life Studio</strong> on Savannah Highway is founded by certified instructor Viktoriya Statska and offers pole dance, high heels choreography, twerk, floorwork, and stretching classes for all levels. The studio is gender-inclusive and designed around building confidence, strength, and flexibility in a welcoming space. ClassPass-bookable and open to absolute beginners.</p>
+              <p>Their heels flow and floorwork classes are a unique addition to Charleston's pole scene — perfect for anyone who wants the artistry side of the movement without jumping straight onto a pole.</p>
+              <span class="location-tag">1703 Savannah Hwy · Charleston</span>
+            </div>
+          </div>
+
+          <!-- Goddess Dance -->
+          <div class="col-md-6 col-lg-4">
+            <div class="studio-card">
+              <span class="card-icon">✨</span>
+              <h3>Goddess Dance Studio</h3>
+              <p><strong>Goddess Dance Studio</strong> in Ladson, SC is known as one of the most community-driven pole studios in the Lowcountry. Beyond classes, the studio hosts paddleboarding trips, girls' nights, workshops, and events that have built a genuinely tight-knit sisterhood. Offerings include pole fitness, aerial hoop, and aerial silks — making it one of the more complete aerial arts studios in the Charleston area.</p>
+              <p>Reviews describe it as life-changing — especially for women who never expected to find this kind of confidence and community through a fitness class.</p>
+              <span class="location-tag">Ladson, SC · Greater Charleston Area</span>
+            </div>
+          </div>
+
+          <!-- Charleston Pole Party / Tipsy Twerk -->
+          <div class="col-md-6 col-lg-4">
+            <div class="studio-card">
+              <span class="card-icon">🎉</span>
+              <h3>Charleston Pole Party &amp; Tipsy Twerk</h3>
+              <p><strong>Charleston Pole Party</strong> at 84 N Market Street is the most centrally-located option for visitors and bachelorette groups on the downtown peninsula. Walk-in and private bookings bring the pole experience right into the heart of the tourist district. <strong>Tipsy Twerk</strong> rounds out the scene with a fun, low-pressure twerk-focused experience that's become a popular bachelorette party addition alongside pole classes for a full girls' night itinerary.</p>
+              <p>Both are consistently recommended on bachelorette planning blogs and local activity guides for Charleston weekend trips.</p>
+              <span class="location-tag">84 N Market St · Downtown Charleston</span>
+            </div>
+          </div>
+
+          <!-- Sweat Seduction -->
+          <div class="col-md-6 col-lg-4">
+            <div class="studio-card">
+              <span class="card-icon">🔥</span>
+              <h3>Sweat, Seduction &amp; Stilettos</h3>
+              <p><strong>Sweat, Seduction &amp; Stilettos</strong> at 1703 Savannah Highway (843-695-7219) rounds out the Savannah Hwy corridor of Charleston pole and dance fitness studios. The name tells you everything: this is a confidence-first studio where heels, movement, and a little attitude are part of the curriculum. Yelp's latest Charleston pole rankings include them among the top options in the metro alongside Amorous and Inversions.</p>
+              <p>Great for groups, girls' nights, and anyone who wants their workout wrapped in a whole lot of energy.</p>
+              <span class="location-tag">1703 Savannah Hwy · Charleston</span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <hr class="cyan-divider">
+
+    <!-- BENEFITS SECTION -->
+    <section class="py-5" style="background: #0a0a16;">
+      <div class="container">
+        <h2 class="section-label text-center mb-2">More Than <span class="accent">Just a Workout</span></h2>
+        <p class="text-center mb-5" style="color:#666; font-size:0.85rem; letter-spacing:0.1em; text-transform:uppercase;">What Pole Dance Actually Does For You</p>
+
+        <div class="row g-3">
+          <div class="col-md-6 col-lg-3">
+            <div class="benefit-item">
+              <span class="benefit-icon">💪</span>
+              <div>
+                <h4>Strength &amp; Fitness</h4>
+                <p>Full-body resistance training disguised as dance. Builds upper body, core, and leg strength unlike conventional gym workouts.</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-3">
+            <div class="benefit-item">
+              <span class="benefit-icon">🦋</span>
+              <div>
+                <h4>Confidence</h4>
+                <p>Every studio in Charleston's pole community is built around this. Students consistently report improved self-esteem and body image that extends well beyond the studio.</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-3">
+            <div class="benefit-item">
+              <span class="benefit-icon">🤸</span>
+              <div>
+                <h4>Flexibility &amp; Coordination</h4>
+                <p>Pole training dramatically improves flexibility and body awareness. Classes at studios like Dance Your Life specifically combine pole with stretching curricula.</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-3">
+            <div class="benefit-item">
+              <span class="benefit-icon">👯</span>
+              <div>
+                <h4>Community</h4>
+                <p>The Charleston pole community — especially at studios like Goddess Dance — is built around genuine sisterhood, events, and collective celebration of progress.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <hr class="pink-divider">
+
+    <!-- BACHELORETTE CALLOUT -->
+    <section class="py-5" style="background: #08080f;">
+      <div class="container">
+        <div class="bach-block">
+          <p class="text-uppercase" style="font-size:0.72rem; letter-spacing:0.2em; color:rgba(255,255,255,0.35); margin-bottom:0.5rem;">Bachelorette Party Entertainment · Charleston SC</p>
+          <h2>Plan Your<br>Pole Party Weekend</h2>
+          <p>Charleston bachelorette pole parties are one of the most booked experiences in the city for a reason — they're equal parts workout, empowerment session, and absolute blast. <strong>Inversions Pole Fitness</strong> in Mount Pleasant is the top-rated option, offering private parties with club lighting, a photo wall, champagne, and instructors who make the whole group feel like pros by the end of the class. <strong>Charleston Pole Party</strong> downtown is the easiest walk-in option for groups staying on the peninsula.</p>
+          <p>Want to add a different kind of entertainment to the weekend? <strong><a href="https://michaelatyourplace.com" style="color:var(--neon-pink);">Michael at Your Place Charleston</a></strong> brings Las Vegas-style male entertainment directly to your vacation rental or venue — covering Isle of Palms, Folly Beach, Mount Pleasant, and downtown Charleston. Many bachelorette weekends combine a daytime pole class with an evening show for the full experience.</p>
+          <a href="https://www.charlestonbachelorettepoleparties.com" class="btn-pink">Book Inversions &rarr;</a>
+          <a href="https://michaelatyourplace.com" class="btn-outline-cyan">Book Michael CHS &rarr;</a>
+        </div>
+      </div>
+    </section>
+
+    <hr class="cyan-divider">
+
+    <!-- QUICK REFERENCE LIST -->
+    <section class="py-5" style="background: var(--deep-black);">
+      <div class="container">
+        <h2 class="section-label text-center mb-5">Pole Dance <span class="accent-pink">Quick Reference</span></h2>
+        <div class="row justify-content-center">
+          <div class="col-lg-8">
+            <div class="quick-list">
+              <div class="quick-list-header">Charleston SC — Pole Dance Studios &amp; Venues</div>
+              <div class="quick-row">
+                <span class="q-num">01</span>
+                <div>
+                  <div class="q-name">Inversions Pole Fitness</div>
+                  <div class="q-detail">716 S Shelmore Blvd, Mount Pleasant · (843) 460-0654 · #1 rated bachelorette pole parties</div>
+                </div>
+              </div>
+              <div class="quick-row">
+                <span class="q-num">02</span>
+                <div>
+                  <div class="q-name">Amorous Dance Pole &amp; Fitness</div>
+                  <div class="q-detail">1706 Old Towne Rd, Charleston · (843) 819-3482 · Pole &amp; aerial, ADPAF certified</div>
+                </div>
+              </div>
+              <div class="quick-row">
+                <span class="q-num">03</span>
+                <div>
+                  <div class="q-name">Charleston Pole Party</div>
+                  <div class="q-detail">84 N Market St, Downtown Charleston · (843) 276-2371 · Walk-in &amp; private bookings</div>
+                </div>
+              </div>
+              <div class="quick-row">
+                <span class="q-num">04</span>
+                <div>
+                  <div class="q-name">Tipsy Twerk</div>
+                  <div class="q-detail">Charleston · Twerk-focused classes, bachelorette-friendly</div>
+                </div>
+              </div>
+              <div class="quick-row">
+                <span class="q-num">05</span>
+                <div>
+                  <div class="q-name">Goddess Dance Studio</div>
+                  <div class="q-detail">Ladson, SC · Pole, aerial hoop, aerial silks, community events</div>
+                </div>
+              </div>
+              <div class="quick-row">
+                <span class="q-num">06</span>
+                <div>
+                  <div class="q-name">Sweat, Seduction &amp; Stilettos</div>
+                  <div class="q-detail">1703 Savannah Hwy, Charleston · (843) 695-7219</div>
+                </div>
+              </div>
+              <div class="quick-row">
+                <span class="q-num">07</span>
+                <div>
+                  <div class="q-name">Dance Your Life Studio</div>
+                  <div class="q-detail">1703 Savannah Hwy, Charleston · Pole, high heels, twerk, floorwork · All genders welcome</div>
+                </div>
+              </div>
+              <div class="quick-row">
+                <span class="q-num">08</span>
+                <div>
+                  <div class="q-name">DivaDance Charleston</div>
+                  <div class="q-detail">Charleston · Hip hop &amp; dance fitness, bachelorette party experiences</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <p>COPYRIGHT &copy;2025 DANCEFX CHARLESTON &mdash; ALL RIGHTS RESERVED &mdash; CHARLESTON, SC</p>
+    </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
   </body>
-
- 
-
 </html>

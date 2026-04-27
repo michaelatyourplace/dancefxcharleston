@@ -3,88 +3,545 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Dance FX Charleston</title>
+    <title>Adult Dance Classes Charleston SC | Hip Hop, Jazz, Contemporary &amp; More | DanceFX</title>
+    <meta name="description" content="Find the best adult dance classes in Charleston SC — hip hop, jazz, contemporary, heels, ballet, tap, and ballroom. Studios in West Ashley, downtown, North Charleston, and Mount Pleasant.">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
-    <link rel="stylesheet" href="styles.css"> 
-</head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,wght@0,300;0,400;0,600;1,300&display=swap" rel="stylesheet">
+    <style>
+      :root {
+        --neon-cyan: #00e5ff;
+        --neon-pink: #ff2d78;
+        --deep-black: #080810;
+        --card-bg: #0f0f1a;
+        --card-border: rgba(0,229,255,0.18);
+        --section-divider: rgba(255,45,120,0.35);
+        --body-font: 'DM Sans', sans-serif;
+        --display-font: 'Bebas Neue', sans-serif;
+      }
 
-<nav class="navbar navbar-expand-lg bg-info" data-bs-theme="dark">
-  <div class="container-fluid">
-    <a class="navbar-brand" href="#">DanceFX</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarColor02">
-      <ul class="navbar-nav me-auto">
-        <li class="nav-item">
-          <a class="nav-link active" href="index.html">Home
-            <span class="visually-hidden">(current)</span>
-          </a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="adult-dance.html">Adult Dance</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="social-dance.html">Social Dance</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="pole-dance.html">Pole dance</a>
-        </li>
-      </ul>
-    </div>
-  </div>
-</nav>
+      * { box-sizing: border-box; }
 
+      body {
+        background-color: var(--deep-black);
+        color: #e0e0ef;
+        font-family: var(--body-font);
+        font-size: 1.05rem;
+        line-height: 1.7;
+        overflow-x: hidden;
+      }
 
-  <body class="container bg-black">
+      /* ── NAVBAR ── */
+      .navbar { background: rgba(8,8,16,0.92) !important; border-bottom: 1px solid var(--section-divider); backdrop-filter: blur(8px); }
+      .navbar-brand {
+        font-family: var(--display-font);
+        font-size: 2rem;
+        letter-spacing: 0.08em;
+        color: var(--neon-cyan) !important;
+        text-shadow: 0 0 18px rgba(0,229,255,0.55);
+      }
+      .nav-link { color: #c0c0d8 !important; font-weight: 300; letter-spacing: 0.04em; transition: color 0.2s; }
+      .nav-link:hover, .nav-link.active { color: var(--neon-pink) !important; }
+
+      /* ── PAGE HEADER ── */
+      .page-header {
+        padding: 5rem 0 3rem;
+        background: linear-gradient(180deg, #050d14 0%, var(--deep-black) 100%);
+        border-bottom: 1px solid var(--section-divider);
+        position: relative;
+        overflow: hidden;
+      }
+      .page-header::before {
+        content: 'DANCE';
+        position: absolute;
+        right: -0.5rem;
+        top: 50%;
+        transform: translateY(-50%);
+        font-family: var(--display-font);
+        font-size: clamp(7rem, 22vw, 16rem);
+        color: rgba(0,229,255,0.04);
+        letter-spacing: 0.04em;
+        pointer-events: none;
+        white-space: nowrap;
+      }
+      .page-header h1 {
+        font-family: var(--display-font);
+        font-size: clamp(3rem, 8vw, 6rem);
+        line-height: 0.95;
+        letter-spacing: 0.04em;
+        color: #fff;
+        margin-bottom: 0.5rem;
+      }
+      .page-header h1 span { color: var(--neon-cyan); }
+      .page-header p {
+        font-size: 1rem;
+        font-weight: 300;
+        color: rgba(255,255,255,0.55);
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        margin: 0;
+      }
+
+      /* ── SECTION LABELS ── */
+      .section-label {
+        font-family: var(--display-font);
+        font-size: clamp(2rem, 5vw, 3.2rem);
+        letter-spacing: 0.06em;
+        color: #fff;
+        line-height: 1;
+      }
+      .accent      { color: var(--neon-cyan); }
+      .accent-pink { color: var(--neon-pink); }
+
+      /* ── STUDIO CARDS ── */
+      .studio-card {
+        background: var(--card-bg);
+        border: 1px solid var(--card-border);
+        border-radius: 4px;
+        padding: 1.8rem 1.6rem;
+        height: 100%;
+        transition: border-color 0.25s, transform 0.25s, box-shadow 0.25s;
+      }
+      .studio-card:hover {
+        border-color: var(--neon-cyan);
+        transform: translateY(-4px);
+        box-shadow: 0 12px 40px rgba(0,229,255,0.1);
+      }
+      .studio-card .card-icon {
+        font-size: 2rem;
+        margin-bottom: 0.6rem;
+        display: block;
+      }
+      .studio-card h3 {
+        font-family: var(--display-font);
+        font-size: 1.55rem;
+        letter-spacing: 0.05em;
+        color: var(--neon-cyan);
+        margin-bottom: 0.35rem;
+      }
+      .studio-card p { font-size: 0.95rem; color: #b8b8cc; margin-bottom: 0.65rem; }
+      .studio-card .style-tags { display: flex; flex-wrap: wrap; gap: 5px; margin-top: 0.5rem; }
+      .style-tag {
+        font-size: 0.7rem;
+        font-weight: 600;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        padding: 2px 8px;
+        border-radius: 2px;
+        border: 1px solid rgba(0,229,255,0.3);
+        color: var(--neon-cyan);
+      }
+      .style-tag.pink {
+        border-color: rgba(255,45,120,0.35);
+        color: var(--neon-pink);
+      }
+      .location-tag {
+        display: inline-block;
+        font-size: 0.72rem;
+        font-weight: 600;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: rgba(255,255,255,0.45);
+        margin-top: 0.5rem;
+      }
+
+      /* ── STYLE SPOTLIGHT (hip hop / jazz deep dives) ── */
+      .spotlight-block {
+        background: var(--card-bg);
+        border: 1px solid var(--card-border);
+        border-radius: 4px;
+        padding: 2.2rem 2rem;
+        height: 100%;
+      }
+      .spotlight-block.pink-accent { border-left: 4px solid var(--neon-pink); }
+      .spotlight-block.cyan-accent { border-left: 4px solid var(--neon-cyan); }
+      .spotlight-block h3 {
+        font-family: var(--display-font);
+        font-size: 2rem;
+        letter-spacing: 0.05em;
+        margin-bottom: 0.5rem;
+      }
+      .spotlight-block.pink-accent h3 { color: var(--neon-pink); }
+      .spotlight-block.cyan-accent h3  { color: var(--neon-cyan); }
+      .spotlight-block p { font-size: 0.96rem; color: #b0b0c8; }
+
+      /* ── PHOTO ROW ── */
+      .photo-row img {
+        border-radius: 4px;
+        border: 1px solid var(--card-border);
+        filter: brightness(0.82) saturate(1.1);
+        width: 100%;
+        height: 260px;
+        object-fit: cover;
+      }
+
+      /* ── QUICK REFERENCE ── */
+      .ref-table {
+        background: var(--card-bg);
+        border: 1px solid var(--card-border);
+        border-radius: 4px;
+        overflow: hidden;
+      }
+      .ref-table-header {
+        background: rgba(0,229,255,0.07);
+        padding: 1rem 1.5rem;
+        font-family: var(--display-font);
+        font-size: 1.3rem;
+        letter-spacing: 0.06em;
+        color: var(--neon-cyan);
+        border-bottom: 1px solid var(--card-border);
+      }
+      .ref-row {
+        display: flex;
+        align-items: flex-start;
+        gap: 1rem;
+        padding: 0.85rem 1.5rem;
+        border-bottom: 1px solid rgba(255,255,255,0.05);
+        font-size: 0.92rem;
+      }
+      .ref-row:last-child { border-bottom: none; }
+      .ref-row .ref-icon { font-size: 1.1rem; flex-shrink: 0; margin-top: 3px; }
+      .ref-row .ref-name { color: #fff; font-weight: 600; display: block; }
+      .ref-row .ref-detail { color: #777; font-size: 0.83rem; }
+
+      /* ── SCENE PILLS ── */
+      .scene-pill {
+        display: inline-block;
+        font-size: 0.72rem;
+        font-weight: 600;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        padding: 3px 10px;
+        border-radius: 20px;
+        margin: 3px 2px;
+      }
+      .pill-cyan { background: rgba(0,229,255,0.08); border: 1px solid rgba(0,229,255,0.3); color: var(--neon-cyan); }
+      .pill-pink { background: rgba(255,45,120,0.08); border: 1px solid rgba(255,45,120,0.3); color: var(--neon-pink); }
+
+      /* ── DIVIDERS ── */
+      .pink-divider { border: none; height: 1px; background: linear-gradient(to right, transparent, var(--neon-pink), transparent); margin: 0; }
+      .cyan-divider  { border: none; height: 1px; background: linear-gradient(to right, transparent, var(--neon-cyan), transparent); margin: 0; }
+
+      /* ── FOOTER ── */
+      footer {
+        background: #050508;
+        border-top: 1px solid rgba(0,229,255,0.12);
+        color: rgba(255,255,255,0.4);
+        font-size: 0.85rem;
+        letter-spacing: 0.06em;
+        text-align: center;
+        padding: 1.8rem 1rem;
+      }
+
+      a { color: var(--neon-cyan); }
+      a:hover { color: var(--neon-pink); }
+    </style>
+  </head>
+
+  <nav class="navbar navbar-expand-lg sticky-top" data-bs-theme="dark">
     <div class="container">
-      <div class="imgContainer"></div>
-        <img class="imgMain img-fluid w-100 h-50" src="adultfx1.jpg" style="">
-        <h1 id="head1">Adult Dance</h1>
+      <a class="navbar-brand" href="index.html">DanceFX</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarColor02">
+        <ul class="navbar-nav me-auto">
+          <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link active" href="adult-dance.html">Adult Dance <span class="visually-hidden">(current)</span></a></li>
+          <li class="nav-item"><a class="nav-link" href="social-dance.html">Social Dance</a></li>
+          <li class="nav-item"><a class="nav-link" href="pole-dance.html">Pole Dance</a></li>
+        </ul>
       </div>
     </div>
+  </nav>
 
-    <div class="container-fluid">
-        <div class="row bg-info text-white">
-          <div class="col fs-5">
-            <h1 class="text-center">Charleston Dance Scene</h1>
-            <p>Charleston offers a vibrant and diverse dance scene, reflecting the city's rich cultural heritage and lively nightlife. From energetic nightclubs to intimate venues, there's something for everyone.</p>
-            <p><b>Specialty Dance Events:</b> Keep an eye out for themed parties, dance festivals, and workshops that showcase different styles.</p>
-            <p><b>Adult Dance Classes:</b> Charleston also has a thriving scene for those who want to learn to dance. Several studios offer a variety of classes for adults, including jazz, hip hop, contemporary, and heels. You can find these classes at studios like Dance Lab Charleston. You can also find classes in ballet, tap, modern, and ballroom dancing at studios like Dance Conservatory of Charleston. For ballroom dancing, check out International Ballroom Dance Studios. There are plenty adult dance classes in Charleston SC.</p>
-            <h3>Hip Hop and Jazz Dance Classes in Charleston:</h3>
-            <p>Charleston provides many opportunities for those interested in hip hop and jazz dance classes. Studios across the city offer classes for all skill levels, from beginner to advanced. You can find classes that focus on various styles, including contemporary jazz, commercial jazz, and the latest hip hop trends. Studios like Dance Lab Charleston and Charleston Dance Center are great options.</p>
-            <p>Whether you're into high-energy clubbing, grooving to live music, or learning a new style, Charleston has a dance scene to suit your taste.</p>
-            <center><p>-------------------------------------------------------------</p></center>
-            <center><h2>Charleston Dance FX</h2></center>
-            <b><p>Adult Dance in Charleston:</p></b>
+  <body>
 
-            <ul>
-                <li>Jazz, hip hop, contemporary, and heels: Dance Lab </li>
-                <li>Ballet, tap, modern, and ballroom dancing: Dance Conservatory</li>
-                <li>Ballroom dancing: International Ballroom Dance Studios</li>
-            </ul>
+    <!-- PAGE HEADER -->
+    <header class="page-header">
+      <div class="container">
+        <h1>Adult <span>Dance</span><br>Charleston SC</h1>
+        <p>Hip Hop &bull; Jazz &bull; Contemporary &bull; Heels &bull; Ballet &bull; Tap &bull; Ballroom</p>
+      </div>
+    </header>
 
-            <div class="container text-center">
-                <div class="row align-items-start">
-                  <div class="col">
-                    <img src="adultfx2.jpg" class="" height="75%" width="75%" alt="Responsive image">
-                  </div>
-                  <div class="col">
-                    <img src="adultfx3.jpg" class="" height="75%" width="75%" alt="Responsive image">
-                  </div>
+    <!-- INTRO -->
+    <section class="py-5" style="background: linear-gradient(135deg, #050d14 0%, #0d0d22 100%); border-bottom: 1px solid rgba(0,229,255,0.08);">
+      <div class="container">
+        <div class="row align-items-center g-5">
+          <div class="col-lg-7">
+            <p class="text-uppercase" style="font-size:0.75rem; letter-spacing:0.18em; color:var(--neon-cyan); margin-bottom:0.5rem;">The Lowcountry's Dance Studio Scene</p>
+            <h2 class="section-label mb-3">The Charleston<br><span class="accent-pink">Dance Scene</span></h2>
+            <p>Charleston's adult dance class scene is larger and more varied than most people realize. Whether you're a complete beginner looking to try something new, a returning dancer picking back up after years away, or an experienced mover training for performance — studios across West Ashley, downtown, North Charleston, Mount Pleasant, and Summerville have a class for you.</p>
+            <p>From industry-style hip hop at <strong>The Dance Space</strong> on the downtown peninsula to adult-only movement classes at <strong>Dance Lab Charleston</strong> in West Ashley and <strong>The Loft</strong> in North Charleston — the options span every style, schedule, and skill level the Lowcountry has to offer.</p>
+            <div class="mt-3">
+              <span class="scene-pill pill-cyan">Hip Hop</span>
+              <span class="scene-pill pill-pink">Jazz</span>
+              <span class="scene-pill pill-cyan">Contemporary</span>
+              <span class="scene-pill pill-pink">Heels</span>
+              <span class="scene-pill pill-cyan">Ballet</span>
+              <span class="scene-pill pill-pink">Tap</span>
+              <span class="scene-pill pill-cyan">Ballroom</span>
+              <span class="scene-pill pill-pink">Commercial</span>
+            </div>
+          </div>
+          <div class="col-lg-5">
+            <img src="adultfx1.jpg" alt="Adult dance classes Charleston SC" class="img-fluid w-100" style="border-radius:4px; border:1px solid var(--card-border); filter: brightness(0.82) saturate(1.1);">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <hr class="cyan-divider">
+
+    <!-- HIP HOP & JAZZ SPOTLIGHT -->
+    <section class="py-5" style="background: var(--deep-black);">
+      <div class="container">
+        <h2 class="section-label text-center mb-2">Hip Hop &amp; Jazz<br><span class="accent">Classes in Charleston</span></h2>
+        <p class="text-center mb-5" style="color:#666; font-size:0.85rem; letter-spacing:0.1em; text-transform:uppercase;">Where to Train in Charleston's Two Hottest Adult Dance Styles</p>
+
+        <div class="row g-4 mb-5">
+          <div class="col-lg-6">
+            <div class="spotlight-block pink-accent">
+              <h3>Hip Hop</h3>
+              <p>Charleston's adult hip hop dance class scene has grown steadily and now spans multiple studios across the metro. <strong>The Dance Space</strong> — a Black-owned, woman-owned studio in downtown Charleston — offers Industry Hip-Hop classes described as fast-paced, street-style movement focused on performance quality, dynamics, and individual style. They emphasize hip hop as a culture with deep roots in African American and Hispanic communities, not just a dance style.</p>
+              <p><strong>Dance Lab Charleston</strong> in West Ashley and its sister studio <strong>The Loft</strong> in North Charleston form an adults-only network where hip hop, heels, and commercial styles are taught in a judgment-free environment. Both share a single membership, so you can book freely across both locations. <strong>Holy City Dance Center</strong> serves teens and adults in Charleston and Summerville, with recreational and competitive hip hop programs. <strong>Dance Conservatory of Charleston</strong> offers leveled hip hop from beginner through advanced, including jazz funk, tutting, and commercial styles at the advanced tier.</p>
+            </div>
+          </div>
+          <div class="col-lg-6">
+            <div class="spotlight-block cyan-accent">
+              <h3>Jazz Dance</h3>
+              <p>Charleston's jazz dance class offerings cover everything from foundational technique to Broadway-style performance work. <strong>Dance Conservatory of Charleston</strong> — whose founder and faculty trained at the School of American Ballet and performed with New York City Ballet — offers multi-level jazz classes for adults, including Broadway, contemporary jazz, and commercial jazz at the advanced level. Their alumni have gone on to the Rockettes, Broadway, and the NYCB.</p>
+              <p><strong>Dance Moves of Charleston</strong> on James Island offers adult jazz with a classic technique approach — strong lines, dynamic combinations, and no-pressure entry for beginners and returners. <strong>The Dance Arts Studio</strong> in the Lowcountry covers jazz alongside contemporary, musical theatre, and hip hop for adult students. <strong>The Dance Space</strong> downtown also weaves jazz vocabulary into its commercial and contemporary offerings for adult classes.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <hr class="pink-divider">
+
+    <!-- STUDIOS GRID -->
+    <section class="py-5" style="background: #0a0a16;">
+      <div class="container">
+        <h2 class="section-label text-center mb-2">Adult Dance <span class="accent-pink">Studios</span></h2>
+        <p class="text-center mb-5" style="color:#666; font-size:0.85rem; letter-spacing:0.1em; text-transform:uppercase;">Charleston SC — Where to Take Adult Dance Classes</p>
+
+        <div class="row g-4">
+
+          <!-- Dance Lab / The Loft -->
+          <div class="col-md-6 col-lg-4">
+            <div class="studio-card">
+              <span class="card-icon">🔥</span>
+              <h3>Dance Lab &amp; The Loft</h3>
+              <p><strong>Dance Lab Charleston</strong> in West Ashley (1660 Sam Rittenberg Blvd) is an adults-only movement studio built around the philosophy of dancing for joy, not perfection. Its sister space, <strong>The Loft</strong> in North Charleston, shares the same membership — one subscription, two locations, book freely between them. Both studios are consistently ranked at the top of Yelp's Charleston dance studio list.</p>
+              <p>Classes cover hip hop, heels, jazz, Latin, and more. The studio's tagline says it best: "Dance classes formulated to light up your life and set your soul on fire."</p>
+              <div class="style-tags">
+                <span class="style-tag">Hip Hop</span>
+                <span class="style-tag">Heels</span>
+                <span class="style-tag pink">Jazz</span>
+                <span class="style-tag">Latin</span>
+              </div>
+              <div class="location-tag">📍 West Ashley &amp; North Charleston</div>
+            </div>
+          </div>
+
+          <!-- The Dance Space -->
+          <div class="col-md-6 col-lg-4">
+            <div class="studio-card">
+              <span class="card-icon">🖤</span>
+              <h3>The Dance Space</h3>
+              <p>A locally Black-owned and woman-owned studio located in downtown Charleston, <strong>The Dance Space</strong> (chsdancespace.com) offers adult classes from beginner through advanced across hip hop, contemporary, commercial dance, and ballet. Their Industry Hip-Hop and Commercial classes are particularly well-regarded — along with "Movement Mends," a body-mind contemporary class described as healing through movement.</p>
+              <p>The studio follows Charleston County school inclement weather policy, meaning it's embedded in the local community, not just a drop-in gym.</p>
+              <div class="style-tags">
+                <span class="style-tag pink">Industry Hip Hop</span>
+                <span class="style-tag">Commercial</span>
+                <span class="style-tag">Contemporary</span>
+                <span class="style-tag pink">Ballet</span>
+              </div>
+              <div class="location-tag">📍 Downtown Charleston</div>
+            </div>
+          </div>
+
+          <!-- Dance Conservatory -->
+          <div class="col-md-6 col-lg-4">
+            <div class="studio-card">
+              <span class="card-icon">🩰</span>
+              <h3>Dance Conservatory of Charleston</h3>
+              <p><strong>Dance Conservatory of Charleston</strong> is the city's premier classical and technical training studio — founded by faculty trained at the School of American Ballet who went on to perform with the New York City Ballet. They offer ballet, jazz, tap, hip hop, modern, and contemporary for all ages including adults, with leveled curricula from beginner through pre-professional.</p>
+              <p>Alumni have gone on to NYCB, the Rockettes, and Broadway. If you want the highest-level technical training Charleston offers, this is the studio.</p>
+              <div class="style-tags">
+                <span class="style-tag">Ballet</span>
+                <span class="style-tag pink">Jazz</span>
+                <span class="style-tag">Tap</span>
+                <span class="style-tag pink">Hip Hop</span>
+                <span class="style-tag">Modern</span>
+              </div>
+              <div class="location-tag">📍 Charleston, SC</div>
+            </div>
+          </div>
+
+          <!-- Dance Moves of Charleston -->
+          <div class="col-md-6 col-lg-4">
+            <div class="studio-card">
+              <span class="card-icon">💃</span>
+              <h3>Dance Moves of Charleston</h3>
+              <p><strong>Dance Moves of Charleston</strong> on James Island is built specifically for adults 18+ — no auditions, no experience required. Classes cover hip hop, contemporary, tap, jazz, and ballet in a welcoming, no-pressure environment. Their adult hip hop is described as "high energy and low pressure," focused on confidence and fun rather than technique anxiety.</p>
+              <p>Adults from Summerville and across James Island have found this studio to be the most accessible re-entry point into dance — especially for those who danced when they were younger and want to return.</p>
+              <div class="style-tags">
+                <span class="style-tag">Hip Hop</span>
+                <span class="style-tag pink">Jazz</span>
+                <span class="style-tag">Contemporary</span>
+                <span class="style-tag pink">Ballet</span>
+                <span class="style-tag">Tap</span>
+              </div>
+              <div class="location-tag">📍 James Island, Charleston</div>
+            </div>
+          </div>
+
+          <!-- International Ballroom -->
+          <div class="col-md-6 col-lg-4">
+            <div class="studio-card">
+              <span class="card-icon">🕺</span>
+              <h3>International Ballroom Dance Studios</h3>
+              <p><strong>International Ballroom Dance Studios</strong> has been serving the greater Charleston area since 2006 with NDCA-certified instructors across waltz, tango, foxtrot, rumba, cha-cha, swing, and salsa. They offer private lessons, group classes, and regular social dance parties — making them the most complete ballroom option in the metro. Two convenient Lowcountry locations.</p>
+              <p>Whether you're preparing for a wedding first dance, working toward competitive ballroom, or just want a social environment to dance in — International Ballroom is the Charleston standard for the style.</p>
+              <div class="style-tags">
+                <span class="style-tag">Ballroom</span>
+                <span class="style-tag pink">Salsa</span>
+                <span class="style-tag">Tango</span>
+                <span class="style-tag pink">Swing</span>
+                <span class="style-tag">Waltz</span>
+              </div>
+              <div class="location-tag">📍 Greater Charleston Area — 2 Locations</div>
+            </div>
+          </div>
+
+          <!-- Arthur Murray -->
+          <div class="col-md-6 col-lg-4">
+            <div class="studio-card">
+              <span class="card-icon">✨</span>
+              <h3>Arthur Murray Charleston</h3>
+              <p><strong>Arthur Murray Charleston</strong> at 1300 Savannah Highway is one of the most recognized names in social and ballroom dance instruction nationwide, and the Charleston location brings that pedigree to the Lowcountry. Specialties include tango, salsa, swing, cha-cha, and wedding first dance preparation. Instructors compete nationally and internationally.</p>
+              <p>The studio offers free trial classes for newcomers and custom lesson pacing — step-by-step at your own speed. Open Tuesday through Saturday, with evening hours on weekdays for working adults.</p>
+              <div class="style-tags">
+                <span class="style-tag">Ballroom</span>
+                <span class="style-tag pink">Salsa</span>
+                <span class="style-tag">Tango</span>
+                <span class="style-tag pink">Cha-Cha</span>
+              </div>
+              <div class="location-tag">📍 1300 Savannah Hwy, Charleston</div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <hr class="cyan-divider">
+
+    <!-- PHOTO ROW + CALLOUT -->
+    <section class="py-5" style="background: var(--deep-black);">
+      <div class="container">
+        <div class="row g-4 photo-row mb-5">
+          <div class="col-6">
+            <img src="adultfx2.jpg" alt="Adult dance Charleston SC">
+          </div>
+          <div class="col-6">
+            <img src="adultfx3.jpg" alt="Dance classes Charleston SC">
+          </div>
+        </div>
+
+        <div class="row justify-content-center">
+          <div class="col-lg-9">
+            <div style="background: var(--card-bg); border: 1px solid var(--card-border); border-radius:4px; padding: 2.5rem 2rem; text-align:center;">
+              <h2 class="section-label mb-3">Charleston <span class="accent">Dance FX</span></h2>
+              <p style="color:#c0c0d8; max-width:650px; margin:0 auto 1.5rem;">Whether you're into high-energy hip hop, the technical challenge of jazz, the elegance of ballroom, or the freedom of contemporary — Charleston has a studio, an instructor, and a class time that fits your life. The Lowcountry's adult dance scene has never been bigger or more accessible than it is right now.</p>
+              <p style="color:#888; font-size:0.9rem;">No experience needed at most studios listed here. Most offer trial classes, drop-in options, or introductory rates. The best move is just showing up for the first one.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <hr class="pink-divider">
+
+    <!-- QUICK REFERENCE -->
+    <section class="py-5" style="background: #0a0a16;">
+      <div class="container">
+        <h2 class="section-label text-center mb-5">Adult Dance <span class="accent">Quick Reference</span></h2>
+        <div class="row justify-content-center">
+          <div class="col-lg-9">
+            <div class="ref-table">
+              <div class="ref-table-header">Charleston SC — Adult Dance Studios by Style</div>
+
+              <div class="ref-row">
+                <span class="ref-icon">🎤</span>
+                <div>
+                  <span class="ref-name">Hip Hop &amp; Commercial</span>
+                  <span class="ref-detail">The Dance Space (downtown) · Dance Lab Charleston (West Ashley) · The Loft (North Charleston) · Dance Conservatory of Charleston · Holy City Dance Center</span>
                 </div>
+              </div>
 
+              <div class="ref-row">
+                <span class="ref-icon">🎷</span>
+                <div>
+                  <span class="ref-name">Jazz Dance</span>
+                  <span class="ref-detail">Dance Conservatory of Charleston · Dance Moves of Charleston (James Island) · The Dance Arts Studio · The Dance Space (commercial jazz)</span>
+                </div>
+              </div>
 
-      
+              <div class="ref-row">
+                <span class="ref-icon">🌀</span>
+                <div>
+                  <span class="ref-name">Contemporary &amp; Modern</span>
+                  <span class="ref-detail">The Dance Space · Dance Moves of Charleston · Dance Lab Charleston · Dance Conservatory of Charleston</span>
+                </div>
+              </div>
 
+              <div class="ref-row">
+                <span class="ref-icon">👠</span>
+                <div>
+                  <span class="ref-name">Heels Classes</span>
+                  <span class="ref-detail">Dance Lab Charleston · The Loft (North Charleston) · The Dance Space (commercial) · Dance Your Life Studio (Savannah Hwy)</span>
+                </div>
+              </div>
 
-      <footer class="text-white mt-5 bg-black">
-        <center><p>COPYRIGHT ©2025, DanceFX ALL RIGHTS RESERVED. Charleston SC</p></center>
-      </footer>
+              <div class="ref-row">
+                <span class="ref-icon">🩰</span>
+                <div>
+                  <span class="ref-name">Ballet &amp; Tap (Adult)</span>
+                  <span class="ref-detail">Dance Conservatory of Charleston · Dance Moves of Charleston (James Island) · Arthur Murray (tap/ballroom foundation)</span>
+                </div>
+              </div>
+
+              <div class="ref-row">
+                <span class="ref-icon">🕺</span>
+                <div>
+                  <span class="ref-name">Ballroom &amp; Latin</span>
+                  <span class="ref-detail">International Ballroom Dance Studios (est. 2006, 2 locations) · Arthur Murray Charleston (1300 Savannah Hwy) · Arthur Murray free trial available</span>
+                </div>
+              </div>
+
+              <div class="ref-row">
+                <span class="ref-icon">💃</span>
+                <div>
+                  <span class="ref-name">Adults-Only Studios</span>
+                  <span class="ref-detail">Dance Lab Charleston + The Loft (shared membership) · Dance Moves of Charleston (18+) — no auditions, no experience required</span>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <p>COPYRIGHT &copy;2025 DANCEFX CHARLESTON &mdash; ALL RIGHTS RESERVED &mdash; CHARLESTON, SC</p>
+    </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
   </body>
-
- 
-
 </html>
